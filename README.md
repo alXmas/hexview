@@ -7,17 +7,16 @@ The usage and output below describe the planned behavior.
 
 ## Build
 
-Requires CMake 3.15+ and GCC or Clang.
+Requires Make and a C compiler (GCC or Clang).
 
 ```sh
-cmake -S . -B build
-cmake --build build
+make build
 ```
 
 ## Usage
 
 ```sh
-./build/hexview file.bin
+./hexview file.bin
 ```
 
 Reads one file in 16-byte chunks and prints the byte offset, hexadecimal values,
@@ -28,7 +27,7 @@ return a nonzero exit code.
 
 ```sh
 printf 'Hi\n' > example.bin
-./build/hexview example.bin
+./hexview example.bin
 ```
 
 Expected output:

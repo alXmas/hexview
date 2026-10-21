@@ -19,11 +19,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Configure CMake
-      run: >
-        cmake -S . -B build
-        -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
-        -DCMAKE_BUILD_TYPE=Release
-
     - name: Build
-      run: cmake --build build
+      run: make build CC=${{ matrix.c_compiler }}

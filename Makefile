@@ -1,9 +1,16 @@
-.PHONY: build run
+CC ?= cc
+CFLAGS ?= -std=c11 -Wall -Wextra -Wpedantic -Werror
 
-build:
-	cmake -S . -B build
-	cmake --build build
+.PHONY: build run clean
+
+build: hexview
+
+hexview: main.c Makefile
+	$(CC) $(CPPFLAGS) $(CFLAGS) main.c $(LDFLAGS) $(LDLIBS) -o $@
 
 run: build
-	./build/hexview
+	./hexview
+
+clean:
+	$(RM) hexview
 
