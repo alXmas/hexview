@@ -1,5 +1,9 @@
+.PHONY: build run
+
 build:
-	gcc -std=c99 -Wall main.c -o hexview
-run:
-	gcc -std=c99 -Wall main.c -o hexview && ./hexview
+	cmake -S . -B build
+	cmake --build build
+
+run: build
+	./build/hexview
 
